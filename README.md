@@ -9,7 +9,7 @@ This project simulates the core functionality of a financial exchange's matching
 
 - Priority Queues for buy/sell matching (price-time priority)
 
-- Order Book Management with efficient insertion, cancellation, and matching
+- engine.Order Book Management with efficient insertion, cancellation, and matching
 
 TO DOs: 
 - Spring Boot REST API for submitting and querying orders
