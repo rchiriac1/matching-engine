@@ -1,9 +1,9 @@
-package engine;
+package radu.engine;
 
-import matching.FOKMatcher;
-import matching.GTCMatcher;
-import matching.IOCMatcher;
-import matching.OrderMatchingStrategy;
+import radu.matching.FOKMatcher;
+import radu.matching.GTCMatcher;
+import radu.matching.IOCMatcher;
+import radu.matching.OrderMatchingStrategy;
 
 import java.time.Instant;
 import java.util.*;
@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 
 
 /**
- * Represents an order book that handles the addition, matching, expiration,
+ * Represents an order book that handles the addition, com.matching, expiration,
  * updating, and cancellation of buy and sell orders for a given security.
  * It supports GTC, FOK, and IOC order types, and maintains trade history.
  */
@@ -30,7 +30,7 @@ public class OrderBook {
     );
 
     /**
-     * Constructs a new empty engine.OrderBook.
+     * Constructs a new empty com.engine.OrderBook.
      * Initializes the priority queues for buy and sell orders and expiration tracking.
      */
     public OrderBook() {
@@ -88,10 +88,10 @@ public class OrderBook {
      */
     public void printOrderBook() {
         // Print the contents of buyOrders and sellOrders
-        System.out.println("engine.Order Book, buy orders");
+        System.out.println("com.engine.Order Book, buy orders");
         System.out.println("------------------------------------");
         buyOrders.iterator().forEachRemaining(System.out::println);
-        System.out.println("engine.Order Book, sell orders");
+        System.out.println("com.engine.Order Book, sell orders");
         System.out.println("------------------------------------");
         sellOrders.iterator().forEachRemaining(System.out::println);
     }
@@ -119,7 +119,7 @@ public class OrderBook {
 
     public void recordTrade(long buyId, long sellId, double price, int quantity) {
         System.out.println("Matched order: BUY " + quantity + " @ " + price +
-                " between engine.Order#" + mapOrders.get(buyId).getId() + " and engine.Order#" + mapOrders.get(sellId).getId());
+                " between com.engine.Order#" + mapOrders.get(buyId).getId() + " and com.engine.Order#" + mapOrders.get(sellId).getId());
         tradeHistory.add(new Trade(buyId, sellId, price, quantity));
     }
 
@@ -151,7 +151,7 @@ public class OrderBook {
      * Prints all trades that have occurred in the order book.
      */
     public void printTradeHistory() {
-        System.out.println("engine.Trade history: ");
+        System.out.println("com.engine.Trade history: ");
         for(Trade trade : tradeHistory) {
             logger.fine("Trade: " + trade);
         }

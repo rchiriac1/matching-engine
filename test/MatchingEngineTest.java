@@ -1,6 +1,9 @@
 
-import engine.*;
 import org.junit.jupiter.api.Test;
+import radu.engine.MatchingEngine;
+import radu.engine.Order;
+import radu.engine.OrderType;
+import radu.engine.TimeInForce;
 
 import java.time.Instant;
 
@@ -33,7 +36,7 @@ public class MatchingEngineTest {
     }
 
     /**
-     * Tests that canceling an order via the engine does not throw.
+     * Tests that canceling an order via the com.engine does not throw.
      */
     @Test
     void testCancelOrderBySymbol() {
@@ -46,7 +49,7 @@ public class MatchingEngineTest {
     }
 
     /**
-     * Tests that updating an order through the engine works as expected.
+     * Tests that updating an order through the com.engine works as expected.
      */
     @Test
     void testUpdateOrderBySymbol() {

@@ -1,9 +1,9 @@
-package matching;
+package radu.matching;
 
-import engine.Order;
-import engine.OrderBook;
-import engine.OrderType;
-import engine.TimeInForce;
+import radu.engine.Order;
+import radu.engine.OrderBook;
+import radu.engine.OrderType;
+import radu.engine.TimeInForce;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,7 @@ import java.util.PriorityQueue;
 import java.util.logging.Logger;
 
 /**
- * Handles Fill-Or-Kill (FOK) order matching logic.
+ * Handles Fill-Or-Kill (FOK) order com.matching logic.
  * FOK orders are fully matched immediately or discarded entirely.
  */
 public class FOKMatcher implements OrderMatchingStrategy{
@@ -45,7 +45,7 @@ public class FOKMatcher implements OrderMatchingStrategy{
         List<Order> candidates = new ArrayList<>();
         int totalAvailable = 0;
 
-        // Scan matching candidates
+        // Scan com.matching candidates
         for (Order o : counterQueue) {
             boolean priceOk = isBuyFOK
                     ? fokOrder.getPrice() >= o.getPrice()
