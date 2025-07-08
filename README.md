@@ -1,21 +1,38 @@
-# com.matching-com.engine
-Real-time order com.matching com.engine implemented in Java, inspired by real-world trading systems.
+# Matching Engine
+A real-time order matching engine implemented in Java, inspired by real-world trading systems.
 
-This project simulates the core functionality of a financial exchange's com.matching com.engine. It supports:
+This project simulates the core functionality of a financial exchange's matching engine and currently supports:
 
-- Limit Orders (GTC, IOC, FOK)
+## Features
+Limit Orders with support for:
 
-- Market Orders
+- GTC (Good Till Cancel)
 
-- Priority Queues for buy/sell com.matching (price-time priority)
+- IOC (Immediate or Cancel)
 
-- com.engine.Order Book Management with efficient insertion, cancellation, and com.matching
+- FOK (Fill or Kill)
 
-TO DOs: 
-- Spring Boot REST API for submitting and querying orders
+- Price-Time Priority matching via priority queues
 
-- Thread-safe implementation using synchronization primitives
+- Efficient buy/sell order book management
 
-- Unit tests to validate order-com.matching behavior
+- Matching logic for full and partial fills
 
-This is a foundational component of any electronic trading platform. I built it to deepen my understanding of concurrent data structures, low-latency trading logic, and backend system design.
+- Expiration, update, and cancellation of orders
+
+## To Do
+⏳ Spring Boot REST API for submitting and querying orders (in progress)
+
+⏳ Thread-safe design with synchronization primitives
+
+⏳ Unit and integration tests to validate behavior under load
+
+This is a foundational component of any electronic trading platform. I built it to deepen my understanding of:
+
+- Concurrent data structures
+
+- Algorithmics 
+
+- Low-latency trading logic
+
+- Backend system architecture and API design
