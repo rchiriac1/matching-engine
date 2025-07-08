@@ -1,13 +1,13 @@
-package matching;
+package radu.matching;
 
-import engine.Order;
-import engine.OrderBook;
-import engine.TimeInForce;
+import radu.engine.Order;
+import radu.engine.OrderBook;
+import radu.engine.TimeInForce;
 
 import java.util.logging.Logger;
 
 /**
- * Handles Good-Till-Cancel (GTC) order matching logic.
+ * Handles Good-Till-Cancel (GTC) order com.matching logic.
  * GTC orders are partially matched if needed and remaining quantity is kept in the order book.
  */
 public class GTCMatcher implements OrderMatchingStrategy {

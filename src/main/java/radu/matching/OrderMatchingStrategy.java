@@ -1,7 +1,7 @@
-package matching;
+package radu.matching;
 
-import engine.Order;
-import engine.OrderBook;
+import radu.engine.Order;
+import radu.engine.OrderBook;
 
 public interface OrderMatchingStrategy {
     boolean canHandle(Order buy, Order sell);

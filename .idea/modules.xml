@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Matching Engine.iml" filepath="$PROJECT_DIR$/Matching Engine.iml" />
+      <module fileurl="file://$PROJECT_DIR$/matching-engine.iml" filepath="$PROJECT_DIR$/matching-engine.iml" />
     </modules>
   </component>
 </project>

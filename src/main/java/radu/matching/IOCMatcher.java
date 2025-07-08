@@ -1,15 +1,14 @@
-package matching;
+package radu.matching;
 
-import engine.Order;
-import engine.OrderBook;
-import engine.TimeInForce;
-import engine.Trade;
+import radu.engine.Order;
+import radu.engine.OrderBook;
+import radu.engine.TimeInForce;
 
 import java.util.logging.Logger;
 
 
 /**
- * Handles Immediate-Or-Cancel (IOC) order matching logic.
+ * Handles Immediate-Or-Cancel (IOC) order com.matching logic.
  * IOC orders are matched instantly for whatever is available, and remaining quantity is discarded.
  */
 public class IOCMatcher implements OrderMatchingStrategy {
