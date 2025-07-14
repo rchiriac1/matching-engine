@@ -1,5 +1,6 @@
 package radu.controller;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import radu.domain.dto.OrderRequest;
@@ -11,7 +12,7 @@ import radu.service.OrderService;
 import java.time.Instant;
 
 /**
- * REST com.controller for handling order-related operations.
+ * REST controller for handling order-related operations.
  */
 @RestController
 @RequestMapping("/api")
@@ -25,17 +26,23 @@ public class OrderController {
         this.orderService = orderService;
     }
 
-    @PostMapping("/orders")
-    public String addOrder(@RequestBody OrderRequest req) {
-        Order order = new Order(
-                req.type,
-                req.symbol,
-                req.price,
-                req.quantity,
-                req.expiry != null ? req.expiry : Instant.now().plusSeconds(60),
-                req.tif
-        );
+    @PostMapping("/addOrder")
+    public ResponseEntity<Void> addOrder(@RequestBody OrderRequest req) {
+        if(req == null){
+            return ResponseEntity.badRequest().build();
+        }
+        Order order = orderService.createOrderObject(req);
         orderService.addOrder(order);
-        return "Order added with ID: " + order.getId();
+        return ResponseEntity.ok().build();
+    }
+
+    @PostMapping("/deleteOrder")
+    public ResponseEntity<Order> deleteOrder(@RequestBody OrderRequest req) {
+        if(req == null){
+            return ResponseEntity.badRequest().build();
+        }
+        Order order = orderService.createOrderObject(req);
+        orderService.deleteOrder(order);
+        return ResponseEntity.ok(order);
     }
 }
