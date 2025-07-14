@@ -1,8 +1,11 @@
 package radu.engine;
 
+import org.springframework.stereotype.Component;
+
 import java.util.HashMap;
 import java.util.Map;
 
+@Component
 public class MatchingEngine {
     private final Map<String, OrderBook> books = new HashMap<>();
 

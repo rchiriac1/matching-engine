@@ -1,5 +1,6 @@
 package radu.engine;
 
+import lombok.Getter;
 import radu.matching.FOKMatcher;
 import radu.matching.GTCMatcher;
 import radu.matching.IOCMatcher;
@@ -18,7 +19,21 @@ import java.util.logging.Logger;
 public class OrderBook {
 
     private static final Logger logger = Logger.getLogger(OrderBook.class.getName());
+    /**
+     * -- GETTER --
+     *  Gets buy orders PQ
+     *
+     * @return buy orders
+     */
+    @Getter
     private final PriorityQueue<Order> buyOrders;
+    /**
+     * -- GETTER --
+     *  Gets sell orders PQ
+     *
+     * @return sell orders
+     */
+    @Getter
     private final PriorityQueue<Order> sellOrders;
     private final HashMap<Long, Order> mapOrders = new HashMap<>();
     private final List<Trade> tradeHistory = new ArrayList<>();
@@ -44,22 +59,6 @@ public class OrderBook {
 
         orderExpiration = new PriorityQueue<>(Comparator.comparing(Order::getExpiry));
 
-    }
-
-    /**
-     * Gets buy orders PQ
-     * @return buy orders
-     */
-    public PriorityQueue<Order> getBuyOrders() {
-        return buyOrders;
-    }
-
-    /**
-     * Gets sell orders PQ
-     * @return sell orders
-     */
-    public PriorityQueue<Order> getSellOrders() {
-        return sellOrders;
     }
 
     /**

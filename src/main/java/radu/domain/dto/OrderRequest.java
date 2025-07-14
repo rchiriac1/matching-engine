@@ -1,4 +1,4 @@
-package radu.dto;
+package radu.domain.dto;
 
 import radu.engine.OrderType;
 import radu.engine.TimeInForce;

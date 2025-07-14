@@ -2,9 +2,11 @@ package radu.controller;
 
 import org.springframework.web.bind.annotation.*;
 
-import radu.dto.OrderRequest;
+import radu.domain.dto.OrderRequest;
 import radu.engine.MatchingEngine;
 import radu.engine.Order;
+import radu.engine.OrderBook;
+import radu.service.OrderService;
 
 import java.time.Instant;
 
@@ -15,7 +17,13 @@ import java.time.Instant;
 @RequestMapping("/api")
 public class OrderController {
 
-    private final MatchingEngine engine = new MatchingEngine(); // Eventually inject
+    private final MatchingEngine engine;
+    private final OrderService orderService;
+
+    public OrderController(MatchingEngine engine, OrderService orderService) {
+        this.engine = engine;
+        this.orderService = orderService;
+    }
 
     @PostMapping("/orders")
     public String addOrder(@RequestBody OrderRequest req) {
@@ -27,7 +35,7 @@ public class OrderController {
                 req.expiry != null ? req.expiry : Instant.now().plusSeconds(60),
                 req.tif
         );
-        engine.addOrder(req.symbol, order);
+        orderService.addOrder(order);
         return "Order added with ID: " + order.getId();
     }
 }
