@@ -26,6 +26,11 @@ public class OrderController {
         this.orderService = orderService;
     }
 
+    /**
+     *
+     * @param req the request body of the order to be added
+     * @return returns 201 CREATED
+     */
     @PostMapping("/addOrder")
     public ResponseEntity<Void> addOrder(@RequestBody OrderRequest req) {
         if(req == null){
@@ -33,9 +38,14 @@ public class OrderController {
         }
         Order order = orderService.createOrderObject(req);
         orderService.addOrder(order);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.status(201).build();
     }
 
+    /**
+     *
+     * @param req the request body of the order to be deleted
+     * @return returns 200 OK with the deleted order
+     */
     @PostMapping("/deleteOrder")
     public ResponseEntity<Order> deleteOrder(@RequestBody OrderRequest req) {
         if(req == null){
